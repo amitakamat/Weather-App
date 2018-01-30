@@ -1,0 +1,20 @@
+{
+  "name": "weather-app-server",
+  "version": "1.0.0",
+  "description": "Server code to fetch weather details",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Amita Vasudev Kamat",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
