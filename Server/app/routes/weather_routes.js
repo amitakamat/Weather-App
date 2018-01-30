@@ -1,5 +1,5 @@
 var request = require('request');
-const apiKey = "e208b16eda228e1382a32f72437949f7";
+const apiKey = "Enter your API key here";
 const weatherAPIURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 const paramCelsius = "&unit=metric";
 const paramFahrenheit = "&unit=imperial";
