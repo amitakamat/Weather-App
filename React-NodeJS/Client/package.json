@@ -11,7 +11,8 @@
     "create-react-class": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -21,6 +22,7 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
+    "build": "webpack",
     "webpack": "webpack",
     "start": "node js/app.js"
   },

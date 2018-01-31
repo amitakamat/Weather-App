@@ -139,3 +139,9 @@ label {
     margin-left: 35%;
     font-size: 25pt;
 }
+
+.change-temp{
+    height: 40px;
+    width: 40px;
+    padding: 1px;
+}

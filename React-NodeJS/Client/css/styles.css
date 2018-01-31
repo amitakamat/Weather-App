@@ -3,6 +3,7 @@ body {
     font-size: 16px;
     padding: 0;
     margin: 0;
+    background-color: #e5e5e5;
 }
 
 header {
@@ -21,23 +22,6 @@ header > h1 {
     margin: 0;
     text-align: center;
     color: #FFFFFF;
-}
-
-h2 {
-    font-size: 24px;
-    margin: 24px 0;
-}
-
-h2 > .currency {
-    color: #0288D1;
-}
-
-.principal {
-    color: #0288D1;
-}
-
-.interest {
-    color: #EF6C00;
 }
 
 input[type=text] {
@@ -88,37 +72,6 @@ label {
     margin-left: 5%;
 }
 
-.bar {
-    display: inline-block;
-    border: none;
-    height: 8px;
-}
-
-.bar.principal {
-    background-color: #0288D1;
-    margin-right:.5px;
-}
-
-.bar.interest {
-    background-color: #EF6C00;
-    margin-left:.5px;
-}
-
-.stretch {
-    width: 100%;
-    padding-left:0;
-    padding-right:0;
-}
-
-.flex {
-    display: -webkit-flex;
-    display: flex;
-}
-
-.currency::before {
-    content:"$";
-}
-
 .left {
     text-align: left;
 }
@@ -128,15 +81,17 @@ label {
 }
 
 #geocoding_form, #weatherContent {
-    padding: 5px;
-    margin: 40px auto 60px;
+    /*padding: 5px;*/
+    margin: 40px auto 0px;
     width: 60%;
     /*border: #323232 thin solid;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);*/
 }
 
 .input-group {
-	margin-left: 4%;
+    margin-left: 4%;
+    display: inline-flex;
+    width:100%;
 }
 
 .glyphicon {
@@ -145,16 +100,38 @@ label {
 	cursor: pointer;
 }
 
+#infoLabel {
+    margin-left: 30%;
+    font-size: small;
+    font-weight: 300;
+    font-style: italic;
+}
+
+#weatherIcon {
+    height: 100px;
+    width: 100px;
+}
+
 .glyphicon-search{
 	position: relative;
 	right: 30px;
 }
 
-#address {
+#location {
     border-radius: 3px;
     height: 40px;
 }
 
-/*.params {
-    margin-left: 10%;
-}*/
+#tempLabel {
+    font-size: 30pt;
+}
+
+#headerLabel{
+    font-size: 20pt;
+}
+
+.search-btn {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+}

@@ -22,5 +22,8 @@ var webpack = require('webpack');
      stats: {
          colors: true
      },
-     devtool: 'source-map'
+     externals:[{
+        xmlhttprequest: '{XMLHttpRequest:XMLHttpRequest}'
+    }],
+    devtool: 'cheap-module-source-map'
  };

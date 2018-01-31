@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
-} else {
   module.exports = __webpack_require__(18);
+} else {
+  module.exports = __webpack_require__(19);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -576,7 +576,7 @@ module.exports = warning;
 
 
 var React = __webpack_require__(1);
-var factory = __webpack_require__(20);
+var factory = __webpack_require__(21);
 
 if (typeof React === 'undefined') {
   throw Error(
@@ -634,9 +634,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(21);
+  module.exports = __webpack_require__(22);
 } else {
-  module.exports = __webpack_require__(24);
+  module.exports = __webpack_require__(25);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -658,7 +658,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(19);
+  var ReactPropTypesSecret = __webpack_require__(20);
   var loggedTypeFailures = {};
 }
 
@@ -957,7 +957,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(22);
+var isTextNode = __webpack_require__(23);
 
 /*eslint-disable no-bitwise */
 
@@ -1024,8 +1024,111 @@ module.exports = focusNode;
 var React = __webpack_require__(1);
 var createReactClass = __webpack_require__(7);
 var ReactDOM = __webpack_require__(8);
-var Search = __webpack_require__(29);
-var WeatherDetails = __webpack_require__(30);
+var location = { weatherData: [{ "code": 200, "data": { "coord": { "lon": -0.13, "lat": 51.51 }, "weather": [{ "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02n" }],
+            "base": "stations", "main": { "temp": 43.77, "pressure": 1022, "humidity": 75, "temp_min": 41, "temp_max": 46.4 }, "visibility": 10000, "wind": { "speed": 6.93 }, "clouds": { "all": 12 },
+            "dt": 1517332800, "sys": { "type": 1, "id": 5091, "message": 0.0058, "country": "GB", "sunrise": 1517298051, "sunset": 1517330857 }, "id": 2643743, "name": "London", "cod": 200 } }] };
+
+var WeatherDetails = createReactClass({
+    displayName: 'WeatherDetails',
+
+    weather: [],
+    render: function render() {
+        console.log(this.weather);
+        if (this.weather == 0) {
+            return null;
+        }
+        var imgSrc = "http://openweathermap.org/img/w/" + this.weather.weatherData[0].data.weather[0].icon + ".png";
+        return React.createElement(
+            'div',
+            { id: 'weatherContent', className: 'form-horizontal' },
+            React.createElement(
+                'div',
+                { className: 'list-group col-xs-12 col-md-6 col-md-offset-3' },
+                React.createElement(
+                    'div',
+                    { className: 'content' },
+                    React.createElement(
+                        'label',
+                        { id: 'headerLabel' },
+                        'Weather at ',
+                        this.weather.weatherData[0].data.name,
+                        ', ',
+                        this.weather.weatherData[0].data.sys.country,
+                        '.'
+                    ),
+                    React.createElement(
+                        'label',
+                        { id: 'tempLabel' },
+                        this.weather.weatherData[0].data.main.temp,
+                        ' F'
+                    ),
+                    React.createElement('img', { src: imgSrc, id: 'weatherIcon' }),
+                    React.createElement(
+                        'div',
+                        null,
+                        React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'label',
+                                null,
+                                this.weather.weatherData[0].data.weather[0].description
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'label',
+                                null,
+                                'Humidity: ',
+                                this.weather.weatherData[0].data.main.humidity,
+                                '%'
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'label',
+                                null,
+                                'Wind: ',
+                                this.weather.weatherData[0].data.wind.speed,
+                                ' mph'
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'label',
+                                null,
+                                'Pressure: ',
+                                this.weather.weatherData[0].data.main.temp,
+                                ' hPa'
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+});
+
+module.exports = WeatherDetails;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var React = __webpack_require__(1);
+var createReactClass = __webpack_require__(7);
+var ReactDOM = __webpack_require__(8);
+var Search = __webpack_require__(30);
+var WeatherDetails = __webpack_require__(16);
 
 var Header = createReactClass({
     displayName: 'Header',
@@ -1060,7 +1163,7 @@ var App = createReactClass({
 ReactDOM.render(React.createElement(App, null), document.getElementById("app"));
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1088,7 +1191,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2453,7 +2556,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2472,7 +2575,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3350,7 +3453,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3586,7 +3689,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3601,7 +3704,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(23);
+var isNode = __webpack_require__(24);
 
 /**
  * @param {*} object The object to check.
@@ -3614,7 +3717,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3642,7 +3745,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3676,8 +3779,8 @@ var containsNode = __webpack_require__(14);
 var focusNode = __webpack_require__(15);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(9);
-var hyphenateStyleName = __webpack_require__(25);
-var camelizeStyleName = __webpack_require__(27);
+var hyphenateStyleName = __webpack_require__(26);
+var camelizeStyleName = __webpack_require__(28);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -19044,7 +19147,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19059,7 +19162,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(26);
+var hyphenate = __webpack_require__(27);
 
 var msPattern = /^ms-/;
 
@@ -19086,7 +19189,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19122,7 +19225,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19137,7 +19240,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(28);
+var camelize = __webpack_require__(29);
 
 var msPattern = /^-ms-/;
 
@@ -19165,7 +19268,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19200,7 +19303,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19209,9 +19312,50 @@ module.exports = camelize;
 var React = __webpack_require__(1);
 var createReactClass = __webpack_require__(7);
 var ReactDOM = __webpack_require__(8);
+var XMLHttpRequest = __webpack_require__(31).XMLHttpRequest;
+var WeatherDetails = __webpack_require__(16);
 
 var Search = createReactClass({
     displayName: 'Search',
+
+
+    handleSubmit: function handleSubmit() {
+        var location = document.getElementById("location").value;
+        var getUrl = "http://localhost:8000/weather/" + location;
+        event.preventDefault();
+        event.stopPropagation();
+        var xmlhttp = new XMLHttpRequest();
+        console.log("Making a GET request on " + getUrl);
+
+        WeatherDetails.weather = { weatherData: [{ "code": 200, "data": { "coord": { "lon": -0.13, "lat": 51.51 }, "weather": [{ "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02n" }],
+                    "base": "stations", "main": { "temp": 43.77, "pressure": 1022, "humidity": 75, "temp_min": 41, "temp_max": 46.4 }, "visibility": 10000, "wind": { "speed": 6.93 }, "clouds": { "all": 12 },
+                    "dt": 1517332800, "sys": { "type": 1, "id": 5091, "message": 0.0058, "country": "GB", "sunrise": 1517298051, "sunset": 1517330857 }, "id": 2643743, "name": "London", "cod": 200 } }] };
+
+        WeatherDetails.render();
+        /*$.get(getUrl).done(function (data) {
+            console.log(data);
+        });
+        $.ajax({
+            type: 'get',
+            url: getUrl,
+            //data: formData,
+            success: function(results) {
+                console.log(results);
+              //$('ul#response').html(results);
+            }
+          });
+        xmlhttp.open("GET", url, true); 
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                data = this.responseText;
+                data = JSON.parse(data);
+                alert(data);
+            }
+        }*/
+        //fetch(url, { method: 'get', mode: 'no-cors', }).then(() => { console.log('Works!'); });
+        return false;
+    },
 
     render: function render() {
         return React.createElement(
@@ -19226,14 +19370,14 @@ var Search = createReactClass({
                     React.createElement(
                         'div',
                         { className: 'input-group' },
-                        React.createElement('input', { type: 'text', className: 'form-control', id: 'address', placeholder: 'Enter a location',
-                            onChange: this.handleChange }),
-                        React.createElement(
-                            'span',
-                            { className: 'input-group-btn' },
-                            React.createElement('span', { className: 'glyphicon glyphicon-search', 'aria-hidden': 'true' })
-                        )
+                        React.createElement('input', { type: 'text', className: 'form-control', id: 'location', title: 'Enter a location name to get it\'s current weather details.', placeholder: 'Enter a location', required: true }),
+                        React.createElement('button', { type: 'submit', className: 'input-group-btn glyphicon glyphicon-search search-btn', 'aria-hidden': 'true' })
                     )
+                ),
+                React.createElement(
+                    'label',
+                    { id: 'infoLabel' },
+                    'Enter a city name or city, country name. Eg Mumbai or Mumbai,India'
                 )
             )
         );
@@ -19243,83 +19387,10 @@ var Search = createReactClass({
 module.exports = Search;
 
 /***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 31 */
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var React = __webpack_require__(1);
-var createReactClass = __webpack_require__(7);
-var ReactDOM = __webpack_require__(8);
-
-var WeatherDetails = createReactClass({
-    displayName: 'WeatherDetails',
-
-    render: function render() {
-        return React.createElement(
-            'div',
-            { id: 'weatherContent', className: 'form-horizontal' },
-            React.createElement(
-                'div',
-                { className: 'list-group col-xs-12 col-md-6 col-md-offset-3' },
-                React.createElement(
-                    'div',
-                    { className: 'content' },
-                    React.createElement(
-                        'label',
-                        null,
-                        'Weather at San Francisco, CA is 70F'
-                    ),
-                    React.createElement(
-                        'div',
-                        { 'class': 'params' },
-                        React.createElement(
-                            'label',
-                            null,
-                            'Precipitation:'
-                        ),
-                        React.createElement(
-                            'label',
-                            null,
-                            '0%'
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { 'class': 'params' },
-                        React.createElement(
-                            'label',
-                            null,
-                            'Humidity:'
-                        ),
-                        React.createElement(
-                            'label',
-                            null,
-                            '62%'
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        { 'class': 'params' },
-                        React.createElement(
-                            'label',
-                            { htmlFor: 'rate' },
-                            'Wind:'
-                        ),
-                        React.createElement(
-                            'label',
-                            null,
-                            '7mph'
-                        )
-                    )
-                )
-            )
-        );
-    }
-});
-
-module.exports = WeatherDetails;
+module.exports = {XMLHttpRequest:XMLHttpRequest};
 
 /***/ })
 /******/ ]);
