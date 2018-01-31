@@ -18,13 +18,3 @@ To get the weather details, OpenWeather API has been used.
 8. Provides overall description of weather.
 9. Provides weather icon corresponsing to the weather condition.
 10. Provides temperature conversion from Fahrenheit to Celcius and vice versa.  
-
-![Alt text](E:/San-Jose-Celcius.png?raw=true "San Jose Celcius")
-
-![Alt text](E:/San-Jose-Fahrenheit.png?raw=true "San Jose Fahrenheit")
-
-![Alt text](E:/Paris-rain.png?raw=true "Paris Rain")
-
-![Alt text](E:/Colombo-cloudy.png?raw=true "Colombo Cloudy")
-
-![Alt text](E:/Error-Message.png?raw=true "Error message")
