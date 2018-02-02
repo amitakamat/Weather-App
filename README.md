@@ -3,6 +3,8 @@ A simple weather application to get the weather of a given city.
   
 To get the weather details, OpenWeather API has been used.  
   
+**_The video for the deployed application is available here._**(https://youtu.be/3HSjQ2nIvJc)
+  
 ### This repository contains two different solutions for the application.  
 1. FrontEnd - ReactJS, BackEnd - NodeJS (in progress)
 2. FrontEnd - Javascript, Backend - NodeJS
